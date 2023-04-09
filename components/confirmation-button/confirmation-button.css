@@ -1,0 +1,19 @@
+.confirmation-button {
+    display: block;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: #e9ebed;
+    color: #363f49;
+    font-size: 15px;
+    font-weight: bold;
+    border: solid 1px #dadada;
+    border-radius: 3px;
+    line-height: 0;
+}
+
+.confirmation-button_danger {
+    color: #ed5e41;
+    border-color: #ed5e41;
+    background-color: #fff0f0;
+}

@@ -1,0 +1,28 @@
+<dialog class="modal" id="modal">
+  <div class="modal__header">
+    <div class="modal__title">
+      <p>Создание связки</p>
+      <div class="spinner" id="spinner"></div>
+    </div>
+    <div>
+      <a href="" target="_blank">Service desk</a>
+    </div>
+  </div>
+  <div class="modal__content">
+
+    <form class="modal__form" id="key-bunch-form">
+      <label for="jira-key">Ключ задачи в Jira</label>
+      <input type="text" name="jiraIssueKey" id="jira-key" autocomplete="off">
+    </form>
+
+    <div class="modal__errors"></div>
+
+    <div class="modal__button-bar">
+      <button type="button" class="modal__button modal__button_secondary" id="cancel">Отмена</button>
+      <button type="submit" form="key-bunch-form" class="modal__button modal__button_primary">
+        Сохранить
+      </button>
+    </div>
+
+  </div>
+</dialog>

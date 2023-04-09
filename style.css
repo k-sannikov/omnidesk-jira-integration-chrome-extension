@@ -1,0 +1,16 @@
+.keys-container {
+    margin-top: 1rem;
+}
+
+.key-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.3rem;
+}
+
+.key-row div {
+    display: inline;
+    width: 85%;
+    word-wrap: break-word;
+}

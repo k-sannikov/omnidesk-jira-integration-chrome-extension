@@ -1,0 +1,90 @@
+.scroll-lock {
+    overflow: hidden;
+}
+
+.modal {
+    border: none;
+    padding: 0;
+    width: 420px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 2px solid #c8c9c9;
+}
+
+.modal::backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #b9b9b980;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 13px;
+}
+
+.modal__title {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.modal__content {
+    padding: 13px;
+}
+
+.modal__button-bar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal__button {
+    width: 130px;
+    height: 32px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.modal__button_primary {
+    background: #4ca9e4;
+}
+
+.modal__button_secondary {
+    background: #b6b6b6;
+}
+
+.modal__form {
+    margin-bottom: 13px;
+}
+
+.modal__form > label {
+    color: #7e7e7e;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.modal__form > input {
+    width: 100%;
+    border: 1px solid #dadada;
+    background: #fff;
+    font-size: 13px;
+    line-height: 17px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    outline: 0;
+    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.modal__errors {
+    margin-bottom: 13px;
+    color: #d83513;
+}

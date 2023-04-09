@@ -1,0 +1,55 @@
+{
+  "name": "Omnidesk jira integration chrome extension",
+  "description": "",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.omnidesk.ru/staff/cases/record/*-*/*"
+      ],
+      "js": [
+        "utils.js",
+        "validator.js",
+        "components/toast/toast.js",
+        "components/button/button.js",
+        "components/confirmation-button/confirmation-button.js",
+        "components/modal/modal.js",
+
+        "api/key-bunch-controller.js",
+
+        "services/create-bunch-service.js",
+        "services/show-issues-service.js",
+        "services/replacing-links-service.js",
+
+        "main.js"
+      ],
+      "css": [
+        "components/toast/toast.css",
+        "components/button/button.css",
+        "components/confirmation-button/confirmation-button.css",
+        "components/modal/modal.css",
+        "components/modal/spinner.css",
+        "style.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "components/button/button.html",
+        "components/modal/modal.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
