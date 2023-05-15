@@ -38,6 +38,6 @@
   await createBunchService.insertModalToPage();
   createBunchService.insertOpenButtonToPage();
 
-  new ReplacingLinksService(apiDomain, jiraDomain).initObserver();
+  await new ReplacingLinksService(apiDomain, jiraDomain, showIssuesService).initObserver();
 
 })();

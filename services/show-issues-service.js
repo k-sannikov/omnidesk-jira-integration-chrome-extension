@@ -37,7 +37,12 @@ class ShowIssuesService {
 
       let keyRow = document.createElement("div");
       keyRow.classList.add(["key-row"]);
-      keyRow.innerHTML = `<div><a target="_blank" href="${url}">${issue.jiraIssueKey}</a></div>`;
+
+      keyRow.innerHTML = `<div>
+        <div><a target="_blank" href="${url}">${issue.jiraIssueKey}</a></div>
+        <div>${issue.jiraStatusName}</div>
+      </div>`;
+
       keyRow.append(deleteBtn.element);
 
       this._issuesContainer.append(keyRow);

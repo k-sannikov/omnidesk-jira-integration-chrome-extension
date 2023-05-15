@@ -7,6 +7,11 @@ export default class SettingsController {
 
   async getSettings() {
     let url = `${this._baseUrl}/get`;
-    return await fetch(url, { method: "GET" });
+    return await fetch(url, {
+      method: "GET",
+      headers: {
+        "Origin": "*"
+      }
+    });
   }
 }

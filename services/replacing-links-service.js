@@ -3,8 +3,10 @@ class ReplacingLinksService {
   _regexp;
   _chatContainer;
   _classesNoteContainer = "request-area all-added-answer-area added-note-area";
+  _showIssuesService;
+  
 
-  constructor(apiDomain, jiraDomain) {
+  constructor(apiDomain, jiraDomain, showIssuesService) {
     this._apiDomain = apiDomain;
 
     let searchableUrl = `${jiraDomain}/servicedesk/customershim/secure`;
@@ -13,24 +15,31 @@ class ReplacingLinksService {
     this._chatContainer = document.querySelector(".content-scrollable.nano.has-scrollbar .nano-content");
     let images = this._chatContainer.querySelectorAll("img");
     this._replaceLinks(images)
+
+    this._showIssuesService = showIssuesService;
   }
 
-  initObserver() {
+  async initObserver() {
     let observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => this._mutationHandler(mutation));
+      mutations.forEach(async mutation => await this._mutationHandler(mutation));
     });
 
     observer.observe(this._chatContainer, { childList: true, subtree: true });
   }
 
-  _mutationHandler(mutation) {
-    mutation.addedNodes.forEach(element => {
+  async _mutationHandler(mutation) {
+    mutation.addedNodes.forEach(async element => {
       if (element.nodeName == "DIV") {
         let elementClasses = element.getAttribute("class") || "";
         let isNote = elementClasses.replace(/ /g, "") == this._classesNoteContainer.replace(/ /g, "");
         if (isNote) {
           let images = element.querySelectorAll("img");
           this._replaceLinks(images);
+
+          let result = element.innerHTML.match(/задача ".+?" изменила статус на/gmiu);
+          if (result) {
+            await this._showIssuesService.showIssues();
+          }
         }
       }
     });
@@ -50,22 +59,3 @@ class ReplacingLinksService {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

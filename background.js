@@ -1,7 +1,7 @@
 import SettingsController from "./api/settings-controller.js";
 
-chrome.runtime.onStartup.addListener(async () => {
-  const apiDomain = "https://localhost:7193";
+(async () => {
+  const apiDomain = "https://omnijiraintegration.travelline.lan/OmnideskJiraIntegration/PublicApi";
 
   await chrome.storage.local.set({ apiDomain: apiDomain });
 
@@ -16,4 +16,4 @@ chrome.runtime.onStartup.addListener(async () => {
   } catch (error) {
     await chrome.storage.local.remove("jiraDomain");
   }
-});
+})();

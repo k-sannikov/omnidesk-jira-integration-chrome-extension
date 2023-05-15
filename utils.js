@@ -28,7 +28,9 @@ class Utils {
 
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), timeout);
-    const response = await fetch(resource, {
+    const response = await fetch(resource, { headers: {
+      "Origin": "*"
+    },
       ...options,
       signal: controller.signal
     });
